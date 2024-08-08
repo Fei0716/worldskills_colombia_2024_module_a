@@ -1,0 +1,36 @@
+/* Work here */
+.container{
+    display: flex;
+    gap: 1rem;
+    counter-reset: sum;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+.box:nth-child(1):has(input:checked){
+    counter-increment: sum 10;
+    background-color: gold;
+}
+.box:nth-child(2):has(input:checked){
+    background-color: gold;
+    counter-increment: sum 32;
+
+}
+.box:nth-child(3):has(input:checked){
+    background-color: gold;
+    counter-increment: sum 64;
+}
+.box:nth-child(4):has(input:checked){
+    background-color: gold;
+    counter-increment: sum -15;
+}
+
+#sum::after{
+  content: counter(sum);
+}

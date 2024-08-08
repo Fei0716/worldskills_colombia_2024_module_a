@@ -1,0 +1,61 @@
+/* Work here */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(3 , 200px);
+    grid-template-rows: repeat(3, 200px);
+    grid-template-areas:
+            "A A A"
+            "B B E"
+            "C D E";
+    gap: 1rem;
+    margin: auto;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    border: 2px solid black;
+}
+
+section:nth-child(1){
+    grid-area: A;
+}
+
+section:nth-child(2){
+    grid-area: B;
+}
+section:nth-child(3){
+    grid-area: C;
+}
+section:nth-child(4){
+    grid-area: D;
+}
+section:nth-child(5){
+    grid-area: E;
+}
+
+@media screen and (max-width: 768px){
+    main{
+        grid-template-areas:
+            "A A"
+            "B B"
+            "B B"
+            "C D"
+            "E E";
+        grid-template-columns: repeat(2 , 100px);
+        grid-template-rows: repeat(5, 100px);
+    }
+}

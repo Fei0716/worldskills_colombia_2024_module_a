@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10- Task</title>
+    <script src="js/tailwindcss-3.4.4.js"></script>
+    <link rel="stylesheet" href="css/daisyui.min.css">
+    <style>
+        /* Work Here */
+        .steps {
+            background-image: url("./images/sprite.png");
+            background-position: 0 0;
+            background-size: 1024px 280px; /* Adjust this to match the dimensions of your sprite sheet */
+            animation: walking 1s steps(4) infinite;
+            height: 280px;
+            width: 256px;
+            margin: 0 auto;
+        }
+
+        @keyframes walking {
+            100% {
+                background-position: -1024px 0;
+            }
+        }
+
+    </style>
+</head>
+<body class="min-h-[100vh] flex justify-center items-center bg-slate-400">
+    <main>
+        <h1 class="text-slate-800 text-3xl text-center p-4 underline underline-offset-4">10- Task</h1>
+        <div class="artboard phone-1 flex justify-center items-center bg-slate-300 rounded-md p-4">
+                <div class="steps"></div>
+        </div>
+    </main>
+</body>
+</html>

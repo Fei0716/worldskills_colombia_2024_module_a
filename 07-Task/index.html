@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07- Task</title>
+    <script src="js/tailwindcss-3.4.4.js"></script>
+    <link rel="stylesheet" href="css/daisyui.min.css">
+</head>
+<body class="min-h-[100vh] flex justify-center items-center bg-slate-400">
+    <main>
+        <h1 class="text-slate-800 text-3xl text-center p-4 underline underline-offset-4">07- Task</h1>
+        <div class="artboard phone-1 flex justify-center items-center bg-slate-300 rounded-md p-4">
+            <p class="text-6xl text-center text-slate-600" id="message">
+<!--                12:30:11-->
+            </p>
+        </div>
+    </main>
+    <script>
+        // Work here
+        document.addEventListener('DOMContentLoaded' , function(){
+           const clock =  document.querySelector('#message');
+            let time = null;
+            let hour = null;
+            let minute = null;
+            let second = null;
+
+           setInterval(()=>{
+                time  = new Date();
+               hour = time.getHours().toString().padStart(2 , '0');
+               minute = time.getMinutes().toString().padStart(2 , '0');
+               second = time.getSeconds().toString().padStart(2 , '0');
+               clock.innerHTML = `${hour}:${minute}:${second}`;
+           }, 1000)
+        })
+
+
+    </script>
+</body>
+</html>

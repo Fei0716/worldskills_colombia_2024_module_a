@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02- Task</title>
+    <script src="js/tailwindcss-3.4.4.js"></script>
+    <link rel="stylesheet" href="css/daisyui.min.css">
+</head>
+<body class="min-h-[100vh] flex justify-center items-center bg-slate-400">
+    <main>
+        <h1 class="text-slate-800 text-3xl text-center p-4 underline underline-offset-4">02- Task</h1>
+        <div class="artboard phone-1 bg-slate-300 rounded-md p-4">
+            <label class="text-slate-600 font-semibold">Please enter a text:</label>
+            <textarea class="textarea textarea-bordered bg-slate-400 placeholder-slate-600 text-slate-600 input input-bordered w-full max-w-xs mb-2 h-24" id="text" placeholder="Type here"></textarea>
+            <button class="btn bg-slate-700 text-slate-400 w-full border-0" id="calc">Calculate</button>
+            <p class="pt-10 text-center text-slate-600" id="message">
+<!--                The longest word is <i class="font-bold">consectetur</i>.-->
+            </p>
+        </div>
+    </main>
+    <script>
+
+        document.addEventListener('DOMContentLoaded' , function(){
+
+            document.querySelector('#calc').addEventListener('click',function(){
+                let longestWord = LongestWord(document.querySelector('#text').value);
+                document.querySelector('#message').innerHTML = `
+                The longest word is <i class="font-bold">${longestWord}</i>.
+                `
+            });
+            function LongestWord(text) {
+                let words = text.split(' ');
+                let longestWord = words[0];
+                for(let i = 1; i < words.length; i++){
+                    if(words[i].length > longestWord.length){
+                        longestWord = words[i];
+                    }
+                }
+
+                return longestWord;
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09- Task</title>
+    <script src="js/tailwindcss-3.4.4.js"></script>
+    <link rel="stylesheet" href="css/daisyui.min.css">
+</head>
+<body class="min-h-[100vh] flex justify-center items-center bg-slate-400">
+    <main>
+        <h1 class="text-slate-800 text-3xl text-center p-4 underline underline-offset-4">09- Task</h1>
+        <div class="artboard phone-1 bg-slate-300 rounded-md p-4">
+                <table class="table bg-slate-800 text-slate-400">
+                    <tr>
+                        <th>Input</th>
+                        <th>Output</th>
+                    </tr>
+                    <tr>
+                      <th>[1, 2, 3, 4, 5]</th>
+                      <td>9</td>
+                    </tr>
+                </table>
+        </div>
+    </main>
+    <script>
+        // Work Here
+        document.addEventListener('DOMContentLoaded' , function(){
+            const table = document.querySelector('.table');
+
+            table.innerHTML += `
+                <tr>
+                      <th>[5,5,5,5,5]</th>
+                      <td>${sumTwoLargestIntegers([5,5,5,5,5])}</td>
+                </tr>`;
+
+            table.innerHTML += `
+                <tr>
+                      <th>[1, 2, 3, 4, 5]</th>
+                      <td>${     sumTwoLargestIntegers([1, 2, 3, 4, 5])}</td>
+                </tr>`;
+
+            table.innerHTML += `
+                <tr>
+                      <th>[1]</th>
+                      <td>${sumTwoLargestIntegers([1])}</td>
+                </tr>`;
+
+            table.innerHTML += `
+                <tr>
+                      <th>[]</th>
+                      <td>${sumTwoLargestIntegers([])}</td>
+                </tr>`;
+            function sumTwoLargestIntegers(integers){
+                if(integers.length <= 1){
+                    return 0;
+                }
+                let l1 = integers[0];
+                for(let i  = 1 ; i < integers.length;i++){
+                    if(l1 <= integers[i]){
+                        l1 = integers[i];
+                    }
+                }
+                integers.splice(integers.findIndex(int => int === l1) , 1);
+                let l2 = integers[0];
+                integers.forEach((int, i)=>{
+                    if(l2 <= int){
+                        l2 = int;
+                    }
+                });
+                return l2 + l1;
+            }
+        })
+
+    </script>
+</body>
+</html>
